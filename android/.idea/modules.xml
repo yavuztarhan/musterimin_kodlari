@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1909520965/android.firebase_auth.iml" filepath="$PROJECT_DIR$/.idea/modules/1909520965/android.firebase_auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1028161151/android.firebase_auth_web.iml" filepath="$PROJECT_DIR$/.idea/modules/1028161151/android.firebase_auth_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/628692992/android.firebase_core.iml" filepath="$PROJECT_DIR$/.idea/modules/628692992/android.firebase_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1345931147/android.firebase_core_web.iml" filepath="$PROJECT_DIR$/.idea/modules/-1345931147/android.firebase_core_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-442651967/android.google_sign_in.iml" filepath="$PROJECT_DIR$/.idea/modules/-442651967/android.google_sign_in.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1422602383/android.google_sign_in_web.iml" filepath="$PROJECT_DIR$/.idea/modules/1422602383/android.google_sign_in_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/151323235/android.libphonenumber.iml" filepath="$PROJECT_DIR$/.idea/modules/151323235/android.libphonenumber.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "122618770862",
+    "project_id": "bkproject-6d581",
+    "storage_bucket": "bkproject-6d581.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122618770862:android:f7f668fb91dcdf8270c43f",
+        "android_client_info": {
+          "package_name": "com.furkan.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122618770862-7fvjegg75ijkua6ast38m40hr7tjt84q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.furkan.project",
+            "certificate_hash": "d1fd0dd40e3a1b9549f61691da793b39ec8ec588"
+          }
+        },
+        {
+          "client_id": "122618770862-fmckcacvri4g6gf7pb2mucihtacv12h8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe0-QNXmnnvVTzdHABzcjBe_KBIUCxmvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122618770862-fmckcacvri4g6gf7pb2mucihtacv12h8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
