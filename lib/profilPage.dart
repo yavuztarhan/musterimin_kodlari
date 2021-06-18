@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfirebase/main_screen.dart';
 import 'package:flutterfirebase/pages/home.dart';
 import 'package:flutterfirebase/pages/homePage.dart';
 import 'package:flutterfirebase/pages/sohbetDetay.dart';
@@ -118,9 +119,9 @@ class _ProfilPageState extends State<ProfilPage> {
                                   await FirestoreServisleri().startConversation(
                                       aktifKullaniciId, _gelenKullanici);
 
-                                  return Navigator.pop(
-                                    context,
-                                  );
+                                  return Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>  MainScreen(selectedIndex: 3,) ));
+                                  
+                              
                                 }
                               },
                             )

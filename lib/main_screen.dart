@@ -11,12 +11,20 @@ import 'package:flutterfirebase/profilPage.dart';
 import 'package:flutterfirebase/profilTasarimi.dart';
 
 class MainScreen extends StatefulWidget {
+  final int selectedIndex;
+
+  const MainScreen({Key key, this.selectedIndex = 0}) : super(key: key);
   @override
   _MainScreen createState() => _MainScreen();
 }
 
 class _MainScreen extends State<MainScreen> {
   int selectedIndex = 0;
+  @override
+  void initState() {
+    selectedIndex = widget.selectedIndex;
+    super.initState();
+  }
   final screen = [
     TumYazilar(),
     YaziEkrani(),
