@@ -26,6 +26,31 @@ class FirestoreServisleri {
         .map((snapshot) => Conversations.fromSnapshot(snapshot))
         .toList());
   }
+    Future<Kullanici>kullaniciGetir(String kullaniciId) async {
+    DocumentSnapshot _query = await FirebaseFirestore.instance
+        .collection("Users")
+        .doc(kullaniciId)
+        .get();
+    Kullanici kullanici = Kullanici.fromMap(_query.data());
+    return kullanici;
+  }
+      Future<Kullanici>shobetKullaniciGetir(String kullaniciId, List<dynamic> members ) async {
+        String targetId;
+        members.forEach((element) {
+          if(kullaniciId != element){
+            print("element:" + element);
+             targetId = element;
+          }
+         });
+         print("Aktif ID: "+ kullaniciId) ;
+         print("TARGET ID: "+ targetId) ;
+    DocumentSnapshot _query = await FirebaseFirestore.instance
+        .collection("Users")
+        .doc(targetId)
+        .get();
+    Kullanici kullanici = Kullanici.fromMap(_query.data());
+    return kullanici;
+  }
 
   Future<Conversations> startConversation(
       String aktifKullaniciId, Kullanici profil) async {
