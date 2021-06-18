@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfirebase/models/conversations.dart';
+import 'package:flutterfirebase/services/kullanici_model.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 
@@ -10,8 +11,9 @@ class SohbetDetay extends StatefulWidget {
   final String userId;
   final String conersationId;
   final Conversations sohbet;
+  final Kullanici kullanici;
 
-  const SohbetDetay({Key key, this.userId, this.conersationId, this.sohbet})
+  const SohbetDetay({Key key, this.userId, this.conersationId, this.sohbet, this.kullanici})
       : super(key: key);
 
   @override
@@ -80,11 +82,11 @@ class _SohbetDetayState extends State<SohbetDetay> with ChangeNotifier {
         title: Row(
           children: <Widget>[
             CircleAvatar(
-              backgroundImage: NetworkImage(widget.sohbet.profileImage),
+              backgroundImage: NetworkImage(widget.kullanici.profilFotoUrl),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8.0),
-              child: Text(widget.sohbet.name,
+              child: Text(widget.kullanici.adSoyad,
                   style: TextStyle(color: Colors.black)),
             ),
           ],
@@ -124,7 +126,6 @@ class _SohbetDetayState extends State<SohbetDetay> with ChangeNotifier {
                           controller: _scrollController,
                           children: snapshot.data.docs
                               .map((document) => ListTile(
-                                
                                   title: Align(
                                       alignment:
                                           widget.userId != document["senderId"]

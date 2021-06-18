@@ -15,7 +15,6 @@ class Mesajlasma extends StatefulWidget {
 class _MesajlasmaState extends State<Mesajlasma> {
   String aktifKullaniciId;
   final FirestoreServisleri fireStoreServisi = FirestoreServisleri();
-  Kullanici kullanici;
   @override
   void initState() {
     super.initState();
@@ -104,6 +103,7 @@ class _MesajlasmaState extends State<Mesajlasma> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SohbetDetay(
+                                      kullanici: kullanici,
                                       sohbet: sohbet,
                                       userId: aktifKullaniciId,
                                       conersationId: sohbet.id)));
