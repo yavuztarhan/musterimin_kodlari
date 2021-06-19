@@ -8,6 +8,7 @@ import 'package:flutterfirebase/pages/home.dart';
 import 'package:flutterfirebase/pages/homePage.dart';
 import 'package:flutterfirebase/pages/sohbetDetay.dart';
 import 'package:flutterfirebase/services/firestore_servisleri.dart';
+import 'package:flutterfirebase/services/ilan_model.dart';
 import 'package:flutterfirebase/services/kullanici_model.dart';
 
 class ProfilPage extends StatefulWidget {
@@ -113,15 +114,29 @@ class _ProfilPageState extends State<ProfilPage> {
                                         aktifKullaniciId, _gelenKullanici);
                                 print(sorgu);
                                 if (sorgu == true) {
-                                  Navigator.pop(context);
+                                  var aaa = await FirestoreServisleri()
+                                      .konusmaVarMiGetir(
+                                          aktifKullaniciId, _gelenKullanici);
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SohbetDetay(
+                                                conersationId: aaa.id,
+                                                userId: aktifKullaniciId,
+                                              )));
                                 } else {
                                   print("Else çalıştı");
-                                  await FirestoreServisleri().startConversation(
-                                      aktifKullaniciId, _gelenKullanici);
+                                  var conversation = await FirestoreServisleri()
+                                      .startConversation(
+                                          aktifKullaniciId, _gelenKullanici);
 
-                                  return Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>  MainScreen(selectedIndex: 3,) ));
-                                  
-                              
+                                  return Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SohbetDetay(
+                                                conersationId: conversation.id,
+                                                userId: aktifKullaniciId,
+                                              )));
                                 }
                               },
                             )

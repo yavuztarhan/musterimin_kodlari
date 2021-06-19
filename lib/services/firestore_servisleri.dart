@@ -26,7 +26,8 @@ class FirestoreServisleri {
         .map((snapshot) => Conversations.fromSnapshot(snapshot))
         .toList());
   }
-    Future<Kullanici>kullaniciGetir(String kullaniciId) async {
+
+  Future<Kullanici> kullaniciGetir(String kullaniciId) async {
     DocumentSnapshot _query = await FirebaseFirestore.instance
         .collection("Users")
         .doc(kullaniciId)
@@ -34,16 +35,18 @@ class FirestoreServisleri {
     Kullanici kullanici = Kullanici.fromMap(_query.data());
     return kullanici;
   }
-      Future<Kullanici>shobetKullaniciGetir(String kullaniciId, List<dynamic> members ) async {
-        String targetId;
-        members.forEach((element) {
-          if(kullaniciId != element){
-            print("element:" + element);
-             targetId = element;
-          }
-         });
-         print("Aktif ID: "+ kullaniciId) ;
-         print("TARGET ID: "+ targetId) ;
+
+  Future<Kullanici> shobetKullaniciGetir(
+      String kullaniciId, List<dynamic> members) async {
+    String targetId;
+    members.forEach((element) {
+      if (kullaniciId != element) {
+        print("element:" + element);
+        targetId = element;
+      }
+    });
+    print("Aktif ID: " + kullaniciId);
+    print("TARGET ID: " + targetId);
     DocumentSnapshot _query = await FirebaseFirestore.instance
         .collection("Users")
         .doc(targetId)
@@ -60,18 +63,33 @@ class FirestoreServisleri {
       "kullaniciAdi": profil.adSoyad,
       "profilFoto": profil.profilFotoUrl,
     });
+    return Conversations(
+        id: ref.id,
+        displayMessage: "",
+        name: profil.adSoyad,
+        profileImage: profil.profilFotoUrl);
   }
 
   Future<bool> konusmaVarMi(String aktifKullaniciId, Kullanici profil) async {
-    QuerySnapshot snapshot = await _firestore.collection("conversations").where("members",
+    QuerySnapshot snapshot = await _firestore.collection("conversations").where(
+        "members",
         isEqualTo: [aktifKullaniciId, profil.kullaniciId]).get();
-        print(snapshot.docs);
-        if(snapshot.docs.length == 0){
-          print("girdi");
-  return false;
-        }
-        print("girmedi");
-           return true;
-        
+    print(snapshot.docs);
+    if (snapshot.docs.length == 0) {
+      print("girdi");
+      return false;
+    }
+    print("girmedi");
+    return true;
+  }
+
+  Future<Conversations> konusmaVarMiGetir(
+      String aktifKullaniciId, Kullanici profil) async {
+    QuerySnapshot snapshot = await _firestore.collection("conversations").where(
+        "members",
+        isEqualTo: [aktifKullaniciId, profil.kullaniciId]).get();
+    List<Conversations> aaa =
+        snapshot.docs.map((doc) => Conversations.fromSnapshot(doc)).toList();
+    return aaa[0];
   }
 }
