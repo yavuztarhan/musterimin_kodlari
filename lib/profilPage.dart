@@ -123,6 +123,7 @@ class _ProfilPageState extends State<ProfilPage> {
                                           builder: (context) => SohbetDetay(
                                                 conersationId: aaa.id,
                                                 userId: aktifKullaniciId,
+                                                kullanici: _gelenKullanici,
                                               )));
                                 } else {
                                   print("Else çalıştı");
@@ -136,6 +137,7 @@ class _ProfilPageState extends State<ProfilPage> {
                                           builder: (context) => SohbetDetay(
                                                 conersationId: conversation.id,
                                                 userId: aktifKullaniciId,
+                                                kullanici: _gelenKullanici,
                                               )));
                                 }
                               },

@@ -82,7 +82,7 @@ class _MesajlasmaState extends State<Mesajlasma> {
                     .shobetKullaniciGetir(aktifKullaniciId, sohbet.members),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
-                    return Center(child: CircularProgressIndicator());
+                  return SizedBox(); 
                   }
 
                   Kullanici kullanici = snapshot.data;
